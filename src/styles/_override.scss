@@ -1,0 +1,196 @@
+.item-post-modal {
+  padding: 0 !important;
+  top: 50px !important;
+
+  .ant-modal-content {
+    padding: 2px !important;
+  }
+}
+
+.find-vendor-input {
+  .ant-input {
+    background: none !important;
+  }
+}
+
+.ant-modal-close {
+  position: fixed !important;
+  top: 15px !important; /* Adjust the top position as needed */
+  right: 24px !important; /* Adjust the right position as needed */
+  z-index: 1001 !important; /* Ensure the close button appears above other content */
+  height: 30px !important;
+  width: 30px !important;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+
+  .ant-modal-close-x {
+    color: #ffffff !important;
+    font-size: 22px !important;
+    font-weight: bolder !important;
+  }
+}
+
+.used-status-badge .ant-badge-count {
+  display: flex !important;
+  font-size: 14px !important;
+  align-items: center !important;
+  height: 24px !important;
+}
+
+.sider-menu .ant-menu-item {
+  margin-bottom: 14px !important;
+}
+
+.ant-menu-item {
+  // padding-top: 24px !important;
+  // padding-bottom: 24px !important;
+  i {
+    transition: all 0.1s ease !important;
+  }
+
+  &:hover i {
+    transform: scale(1.1) !important;
+  }
+}
+.ant-menu-item-active i {
+  font-weight: 600 !important;
+  transform: scale(1.5) !important;
+}
+
+.ant-menu-item-selected {
+  font-weight: 700 !important;
+  background: transparent !important;
+}
+
+.ant-switch {
+  background-color: hsl(var(--muted-foreground)) !important;
+}
+
+.ant-switch-checked {
+  background-color: #1e88e5 !important;
+}
+
+.dash-sider {
+  transition: all 0.4s ease !important;
+
+  .ant-select-selector {
+    // border: 1px solid black !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.09);
+  }
+
+  .ant-select-selector,
+  .ant-select-in-form-item,
+  .ant-select-selection-item {
+    height: 2.3rem !important;
+    overflow: hidden;
+    display: flex;
+    align-items: center !important;
+  }
+
+  // .ant-menu-item:last-child {
+  //   position: absolute;
+  //   bottom: 50px;
+  // }
+
+  .ant-menu-light.ant-menu-root.ant-menu-inline {
+    border-inline-end: none !important;
+  }
+}
+
+.dropdown-popover {
+  .ant-popover-inner {
+    padding: 5px 2px !important;
+    margin-top: -2px !important;
+  }
+}
+
+.virtual-select-form-item {
+  margin: 0;
+}
+
+.light {
+  .dashboard-transaction-list:hover {
+    background-color: #eee !important;
+  }
+
+  .ant-layout-sider,
+  .ant-menu-light {
+    background: #ffffff !important;
+    transition:
+      all 0.2s,
+      background 0s;
+  }
+
+  .ant-menu-item-selected {
+    color: #000000 !important;
+  }
+
+  .react-code-input {
+    margin: 32px -20px 32px 0;
+    text-align: center;
+
+    input {
+      margin-right: 20px !important;
+      width: 60px !important;
+      height: 60px !important;
+      border-radius: 8px;
+      outline: none !important;
+      caret-color: var(--accent) !important;
+      color: var(--accent) !important;
+      text-align: center;
+      font-weight: bold;
+      background-color: #ffffff;
+      background-image: none;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #d9d9d9;
+      transition: all 0.2s;
+    }
+
+    input:focus,
+    input:hover {
+      border-color: #1668dc !important;
+      // box-shadow: 0 0 0 2px rgba(0, 60, 180, 0.15) !important;
+      outline: 0 !important;
+    }
+  }
+}
+
+.dark {
+  .dashboard-transaction-list {
+    border-radius: 4px !important;
+  }
+
+  .ant-tag.ant-tag-success {
+    background-color: #0d3400 !important;
+    color: #51f300 !important;
+  }
+
+  .ant-tag.ant-tag-red {
+    background-color: #2f0000 !important;
+    color: #ff6565 !important;
+  }
+  // .dashboard-transaction-list:hover {
+  //   background-color: hsl(var(--background)) !important;
+  // }
+
+  .ant-layout-sider,
+  .ant-menu-light {
+    background: hsl(var(--background)) !important;
+    transition:
+      all 0.2s,
+      background 0s;
+  }
+
+  .ant-menu-item-active,
+  .ant-menu-item-selected {
+    background-color: rgba(39, 39, 42, 1) !important;
+    -tw-text-opacity: 1 !important;
+    color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+    transition:
+      all 0.2s,
+      background 0s;
+  }
+}
