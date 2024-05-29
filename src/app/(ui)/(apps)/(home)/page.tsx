@@ -1,10 +1,9 @@
-// import LoginContainer from '@grc/container/auth/login'
 'use client';
 
-import Market from '@grc/components/apps/market';
+import Home from '@grc/components/apps/home';
 
-const Home = () => {
-  return <Market />;
+const HomePage = () => {
+  return <Home />;
 };
 
-export default Home;
+export default HomePage;

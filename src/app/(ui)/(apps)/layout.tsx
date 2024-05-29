@@ -1,19 +1,14 @@
 'use client';
-import { mediaSize, useMediaQuery } from '@grc/_shared/components/responsiveness';
 import { AppContext } from '@grc/app-context';
 import { appNav } from '@grc/app/nav';
 import LeftDrawer from '@grc/components/apps/layout/left-drawer';
 import SideNav from '@grc/components/apps/layout/side-nav';
 import { Layout } from 'antd';
 import React, { ReactElement, useContext, useState } from 'react';
-import FindVendorDrawer from '../../../components/apps/find-vendor-drawer';
-import NotificationsDrawer from '@grc/components/apps/notification-drawer';
-import CreateStoreModal from '@grc/components/apps/create-store-modal';
-import ProfileDrawer from '@grc/components/apps/profile-drawer';
-import SellItemModal from '@grc/components/apps/sell-item-modal';
-import ChatsModal from '@grc/components/apps/chats-modal';
+import RightDrawer from '@grc/components/apps/layout/right-panel';
+import AppHeader from '@grc/components/apps/layout/app-header';
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
 interface AppBaseLayoutProps {
   // Add your prop types here
@@ -21,85 +16,36 @@ interface AppBaseLayoutProps {
 }
 
 const AppBaseLayout: React.FC<AppBaseLayoutProps> = ({ children }) => {
-  const mobileResponsive = useMediaQuery(mediaSize.mobile);
-  const tabletResponsive = useMediaQuery(mediaSize.tablet);
-  const {
-    toggleSider,
-    setToggleSider,
-    toggleNotificationsDrawer,
-    setToggleNotificationsDrawer,
-    toggleFindVendorDrawer,
-    setToggleFindVendorDrawer,
-    toggleProfileDrawer,
-    setToggleProfileDrawer,
-    isCreateStoreModalOpen,
-    setIsCreateStoreModalOpen,
-    isSellItemModalOpen,
-    setIsSellItemModalOpen,
-    isChatsModalOpen,
-    setIsChatsModalOpen,
-  } = useContext(AppContext);
+  const { toggleLeftDrawer } = useContext(AppContext);
   const [selectedKey, setSelectedKey] = useState('');
 
   const handleLayoutBodyClick = () => {
     setSelectedKey('');
-    setToggleSider(false);
-    setToggleFindVendorDrawer(true);
-    setToggleNotificationsDrawer(true);
-    setToggleProfileDrawer(true);
   };
 
   return (
-    <Layout hasSider={true} className="bg-background">
-      <SideNav
-        appNav={appNav}
-        toggleSider={toggleSider}
-        selectedKey={selectedKey}
-        setSelectedKey={setSelectedKey}
-        setToggleSider={setToggleSider}
-        setIsCreateStoreModalOpen={setIsCreateStoreModalOpen}
-        setIsSellItemModalOpen={setIsSellItemModalOpen}
-        setIsChatsModalOpen={setIsChatsModalOpen}
-      />
-      <LeftDrawer toggleLeftDrawer={!toggleSider} />
-      <FindVendorDrawer toggleFindVendorDrawer={toggleFindVendorDrawer} />
-      <NotificationsDrawer toggleNoticationDrawer={toggleNotificationsDrawer} />
-      <ProfileDrawer toggleProfileDrawer={toggleProfileDrawer} />
-      <CreateStoreModal
-        setSelectedKey={setSelectedKey}
-        isCreateStoreModalOpen={isCreateStoreModalOpen}
-        setIsCreateStoreModalOpen={setIsCreateStoreModalOpen}
-      />
-      <SellItemModal
-        setSelectedKey={setSelectedKey}
-        isSellItemModalOpen={isSellItemModalOpen}
-        setIsSellItemModalOpen={setIsSellItemModalOpen}
-      />
-      <ChatsModal
-        setSelectedKey={setSelectedKey}
-        isChatsModalOpen={isChatsModalOpen}
-        setIsChatsModalOpen={setIsChatsModalOpen}
-      />
+    <Layout hasSider={false} className="bg-background bg-gray-300">
+      <AppHeader />
+      <SideNav appNav={appNav} selectedKey={selectedKey} setSelectedKey={setSelectedKey} />
+      <LeftDrawer toggleLeftDrawer={toggleLeftDrawer} />
       <Layout
-        className="body-layout relative z-0 bg-background"
+        className="relative z-0 bg-gray-300"
         style={{
-          marginLeft: `${mobileResponsive ? 0 : tabletResponsive ? 0 : '300px'}`,
-          transition: 'margin-left 0.3s ease',
+          marginLeft: toggleLeftDrawer ? '50px' : '300px',
+          marginRight: '350px',
+          transition: 'all 0.4s',
         }}
         onClick={handleLayoutBodyClick}
       >
-        {/* <AppHeader handleSwitchAccountMode={handleSwitchAccountMode} /> */}
-        <Content className="main-content">
+        <Content>
           <div
-            className={`dark:text-white ${mobileResponsive ? 'p-4' : 'px-[15%]'} py-6`}
-            style={{ minHeight: '100vh' }}
+            className={`dark:text-white mt-10 px-5`}
+            style={{ minHeight: '100vh', height: '100vh' }}
           >
             {children}
           </div>
         </Content>
-        <Footer className="shadow-sm border-t border-border/100 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:text-white">
-          Footer
-        </Footer>
+        <RightDrawer toggleRightDrawer={true} />
       </Layout>
     </Layout>
   );

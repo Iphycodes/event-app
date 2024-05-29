@@ -1,113 +1,53 @@
 'use client';
-import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react';
-import { useAppDispatch } from '@grc/redux/store';
-import { logout } from '@grc/redux/slices/auth';
-import { AuthDataType } from '@grc/_shared/namespace/auth';
-import { AccountNamespace } from '@grc/_shared/namespace/account';
-import { mediaSize, useMediaQuery } from '@grc/_shared/components/responsiveness';
+import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
 type AppProviderPropType = {
   children: ReactNode;
 };
 
 interface AppContextPropType {
-  handleLogOut: () => void;
-  authData: AuthDataType | null;
-  currentAccount: AccountNamespace.Account | null;
-  isLiveMode: boolean;
-  accounts: Array<AccountNamespace.Account | null>;
-  toggleSider: boolean;
-  setToggleSider: Dispatch<SetStateAction<boolean>>;
   toggleLeftDrawer: boolean;
   setToggleLeftDrawer: Dispatch<SetStateAction<boolean>>;
-  toggleFindVendorDrawer: boolean;
-  setToggleFindVendorDrawer: Dispatch<SetStateAction<boolean>>;
-  toggleProfileDrawer: boolean;
-  setToggleProfileDrawer: Dispatch<SetStateAction<boolean>>;
-  toggleNotificationsDrawer: boolean;
-  setToggleNotificationsDrawer: Dispatch<SetStateAction<boolean>>;
-  isCreateStoreModalOpen: boolean;
-  setIsCreateStoreModalOpen: Dispatch<SetStateAction<boolean>>;
-  isSellItemModalOpen: boolean;
-  setIsSellItemModalOpen: Dispatch<SetStateAction<boolean>>;
-  isChatsModalOpen: boolean;
-  setIsChatsModalOpen: Dispatch<SetStateAction<boolean>>;
-  payoutDetails: Record<string, any>;
-  setPayoutdetails: Dispatch<SetStateAction<Record<string, any>>>;
-  selectedDashboardTransaction: Record<string, any>;
-  setSelectedDashboardTransaction: Dispatch<SetStateAction<Record<string, any>>>;
+  leftDrawerKey: 'add-element' | 'layout' | 'add-invitee' | 'event-setting';
+  setLeftDrawerKey: Dispatch<
+    SetStateAction<'add-element' | 'layout' | 'add-invitee' | 'event-setting'>
+  >;
+  currentResponsiveView: 'mobile' | 'tablet' | 'desktop';
+  setCurrentResponsiveView: Dispatch<SetStateAction<'mobile' | 'tablet' | 'desktop'>>;
 }
 
 export const AppContext = createContext<AppContextPropType>({
-  handleLogOut: () => {},
-  authData: null,
-  currentAccount: null,
-  isLiveMode: false,
-  accounts: [],
-  toggleSider: false,
-  setToggleSider: () => {},
   toggleLeftDrawer: false,
   setToggleLeftDrawer: () => {},
-  toggleFindVendorDrawer: true,
-  setToggleFindVendorDrawer: () => {},
-  toggleProfileDrawer: true,
-  setToggleProfileDrawer: () => {},
-  toggleNotificationsDrawer: true,
-  setToggleNotificationsDrawer: () => {},
-  isCreateStoreModalOpen: false,
-  setIsCreateStoreModalOpen: () => {},
-  isSellItemModalOpen: false,
-  setIsSellItemModalOpen: () => {},
-  isChatsModalOpen: false,
-  setIsChatsModalOpen: () => {},
-  payoutDetails: {},
-  setPayoutdetails: () => {},
-  selectedDashboardTransaction: {},
-  setSelectedDashboardTransaction: () => {},
+  leftDrawerKey: 'add-element',
+  setLeftDrawerKey: () => {},
+  currentResponsiveView: 'desktop',
+  setCurrentResponsiveView: () => {},
 });
 
 export const AppProvider = (props: AppProviderPropType) => {
   const { children } = props;
-  const isMobile = useMediaQuery(mediaSize.mobile);
-  const dispatch = useAppDispatch();
-  const handleLogOut = () => dispatch(logout());
-  const [toggleSider, setToggleSider] = useState(false);
-  const [toggleLeftDrawer, setToggleLeftDrawer] = useState(true);
-  const [toggleFindVendorDrawer, setToggleFindVendorDrawer] = useState(true);
-  const [toggleProfileDrawer, setToggleProfileDrawer] = useState(true);
-  const [toggleNotificationsDrawer, setToggleNotificationsDrawer] = useState(true);
-  const [payoutDetails, setPayoutdetails] = useState({});
-  const [selectedDashboardTransaction, setSelectedDashboardTransaction] = useState({});
-  const [isCreateStoreModalOpen, setIsCreateStoreModalOpen] = useState(false);
-  const [isSellItemModalOpen, setIsSellItemModalOpen] = useState(false);
-  const [isChatsModalOpen, setIsChatsModalOpen] = useState(false);
+  // const isMobile = useMediaQuery(mediaSize.mobile);
 
-  useEffect(() => {
-    isMobile && setToggleSider(true);
-  }, [isMobile]);
+  const [toggleLeftDrawer, setToggleLeftDrawer] = useState(true);
+  const [leftDrawerKey, setLeftDrawerKey] = useState<
+    'add-element' | 'layout' | 'add-invitee' | 'event-setting'
+  >('add-element');
+  const [currentResponsiveView, setCurrentResponsiveView] = useState<
+    'mobile' | 'tablet' | 'desktop'
+  >('desktop');
+
+  // useEffect(() => {
+  //   isMobile && setToggleSider(true);
+  // }, [isMobile]);
 
   const values: any = {
-    handleLogOut,
-    setToggleSider,
-    toggleSider,
-    payoutDetails,
-    setPayoutdetails,
-    selectedDashboardTransaction,
-    setSelectedDashboardTransaction,
     setToggleLeftDrawer,
     toggleLeftDrawer,
-    toggleFindVendorDrawer,
-    setToggleFindVendorDrawer,
-    toggleNotificationsDrawer,
-    setToggleNotificationsDrawer,
-    isCreateStoreModalOpen,
-    setIsCreateStoreModalOpen,
-    toggleProfileDrawer,
-    setToggleProfileDrawer,
-    isSellItemModalOpen,
-    setIsSellItemModalOpen,
-    isChatsModalOpen,
-    setIsChatsModalOpen,
+    leftDrawerKey,
+    setLeftDrawerKey,
+    currentResponsiveView,
+    setCurrentResponsiveView,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

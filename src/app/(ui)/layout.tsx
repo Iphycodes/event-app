@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Rings } from 'react-preloader-icon';
 import { AppLoader } from '@grc/_shared/components/app-loader';
-import NetWorkDetector from '@grc/_shared/components/network-detector';
 import { persistor, store } from '@grc/redux/store';
 import { AppProvider } from '@grc/app-context';
 import { ConfigProvider, theme as AntDTheme, App } from 'antd';
@@ -38,9 +37,7 @@ const BaseLayout = ({ children }: LayoutProps) => {
             }}
           >
             <AppProvider>
-              <App>
-                <NetWorkDetector>{children}</NetWorkDetector>
-              </App>
+              <App>{children}</App>
             </AppProvider>
           </ConfigProvider>
         </Suspense>

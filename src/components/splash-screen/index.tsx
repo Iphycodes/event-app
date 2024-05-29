@@ -26,8 +26,8 @@ const SplashScreen: React.FC<Props> = ({}) => {
           strokeColor="#F0AD4E"
           className="mx-auto"
         />
-        <span className="font-bold text-[20px]">Comaket</span>
-        <span className="text-[16px]">World's Largest Network of Buyers and Sellers</span>
+        <span className="font-bold text-[20px]">Event-App</span>
+        <span className="text-[16px]">World's Biggest Event Planner Application</span>
       </div>
     </div>
   );

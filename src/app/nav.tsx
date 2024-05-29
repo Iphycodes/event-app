@@ -14,12 +14,6 @@ export type Nav = {
 
 const footerMenuItems: NavItem[] = [
   {
-    label: 'Create Store',
-    key: 'create-store',
-    destination: '',
-    icon: <i className="ri-store-line" style={{ fontSize: '22px' }}></i>,
-  },
-  {
     label: 'Profile',
     key: 'profile',
     destination: '',
@@ -28,8 +22,9 @@ const footerMenuItems: NavItem[] = [
         style={{
           backgroundColor: getRandomColorByString('Ifeanyi'),
           verticalAlign: 'middle',
-          height: '22px',
-          width: '22px',
+          height: '28px',
+          width: '28px',
+          marginLeft: '-5px',
         }}
       >
         {isEmpty('') && getFirstCharacter('Ifeanyi')}
@@ -40,51 +35,40 @@ const footerMenuItems: NavItem[] = [
 
 const menuItems: NavItem[] = [
   {
-    label: 'Market',
-    key: 'market',
-    destination: '/',
-    icon: <i className="ri-store-2-line" style={{ fontSize: '22px' }}></i>,
-  },
-  // {
-  //   label: 'Explore',
-  //   key: 'explore',
-  //   destination: '/explore',
-  //   icon: <i className="ri-search-line" style={{ fontSize: '22px' }}></i>,
-  // },
-  {
-    label: 'Find Vendor',
-    key: 'find-vendor',
+    label: 'Add Element',
+    key: 'add-element',
     destination: '',
-    icon: <i className="ri-user-location-line" style={{ fontSize: '22px' }}></i>,
+    icon: (
+      <i className="ri-add-fill font-extralight" style={{ fontSize: '22px', fontWeight: 100 }}></i>
+    ),
   },
   {
-    label: 'Chats',
-    key: 'chats',
+    label: 'Layout',
+    key: 'layout',
     destination: '',
-    icon: <i className="ri-question-answer-line" style={{ fontSize: '22px' }}></i>,
+    icon: (
+      <i
+        className="ri-list-check-2 font-extralight"
+        style={{ fontSize: '20px', fontWeight: 100 }}
+      ></i>
+    ),
   },
   {
-    label: 'Notifications',
-    key: 'notifications',
+    label: 'Add Invitee',
+    key: 'add-invitee',
     destination: '',
-    icon: <i className="ri-notification-line" style={{ fontSize: '22px' }}></i>,
+    icon: <i className="ri-user-add-line" style={{ fontSize: '20px' }}></i>,
   },
   {
-    label: 'Saved',
-    key: 'saved',
-    destination: '/saved',
-    icon: <i className="ri-pushpin-line" style={{ fontSize: '22px' }}></i>,
-  },
-  {
-    label: 'Sell An Item',
-    key: 'sell',
+    label: 'Event Setting',
+    key: 'event-setting',
     destination: '',
-    icon: <i className="ri-arrow-left-right-line" style={{ fontSize: '22px' }}></i>,
+    icon: <i className="ri-file-settings-line" style={{ fontSize: '20px' }}></i>,
   },
 ];
 
 const appNav: Nav = {
-  appName: 'Comaket',
+  appName: 'Event App',
   theme: 'light',
   items: menuItems,
   footerMenuItems: footerMenuItems,
