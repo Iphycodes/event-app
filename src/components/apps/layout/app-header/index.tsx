@@ -37,7 +37,10 @@ const AppHeader = () => {
           <i className="ri-planet-line text-[18px]"></i>
           <span>Publish</span>
         </Tag>
-        <Tag className="flex items-center gap-1 py-1 px-2 cursor-pointer border border-[#FF8E3A]">
+        <Tag
+          className="flex items-center gap-1 py-1 px-2 cursor-pointer font-bold border border-[#FF8E3A]"
+          style={{ fontWeight: 'bolder' }}
+        >
           <Image
             src={'/assets/gifs/attention-dot.gif'}
             width={20}
@@ -45,7 +48,7 @@ const AppHeader = () => {
             alt="attention-dot"
             style={{ width: '20px', height: '20px' }}
           />
-          <span>Use AI Helper</span>
+          <span className=" font-bold">Use AI Helper</span>
         </Tag>
       </Space>
     </Header>

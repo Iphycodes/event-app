@@ -4,6 +4,17 @@
 //   }
 // }
 
+.element-search-input {
+  .ant-input {
+    background-color: transparent !important;
+    color: #d9d9d9 !important;
+
+    &::placeholder{
+      color: #7e7e7e !important;
+    }
+  }
+}
+
 .m-inline-0 {
   margin: 0 !important;
 }
@@ -77,6 +88,10 @@
   .ant-tabs-ink-bar,
   .ant-tabs-ink-bar-animated {
     background-color: #ffffff !important;
+  }
+
+  .ant-tabs-nav {
+    padding: 0 10px !important;
   }
 }
 

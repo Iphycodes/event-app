@@ -1,12 +1,13 @@
 import { Tabs, TabsProps } from 'antd';
 import React from 'react';
+import StyleTab from './style-tab';
 
 const RightPanelTabs = () => {
   const elementItems: TabsProps['items'] = [
     {
       key: '1',
       label: 'Style',
-      children: 'Content of Style',
+      children: <StyleTab />,
     },
     {
       key: '2',

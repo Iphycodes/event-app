@@ -1,9 +1,7 @@
 'use client';
 
-import Home from '@grc/components/apps/home';
-
 const HomePage = () => {
-  return <Home />;
+  return <div></div>;
 };
 
 export default HomePage;

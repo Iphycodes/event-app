@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Home = () => {
-  return <div>Welcome to Event App</div>;
+const DesgignSpace = () => {
+  return <div>Drag and Drop</div>;
 };
 
-export default Home;
+export default DesgignSpace;

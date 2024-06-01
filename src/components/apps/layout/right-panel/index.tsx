@@ -17,7 +17,7 @@ const RightDrawer: React.FC<RightDrawerProps> = ({}) => {
       style={{
         overflow: 'auto',
         position: 'fixed',
-        padding: '0 10px',
+        padding: '0',
         height: '100vh',
         color: '#ffffff',
         backgroundColor: '#292929',
@@ -30,7 +30,7 @@ const RightDrawer: React.FC<RightDrawerProps> = ({}) => {
         zIndex: 10,
       }}
     >
-      <Space className="mt-12" size={5}>
+      <Space className="mt-12 px-2" size={5}>
         <i className="ri-arrow-right-circle-line text-[22px]"></i>
         <div>None Selected</div>
       </Space>
